@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:FlexTitle="http://schemas.android.com/apk/res-auto"
+    xmlns:flexTitle="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,17 +8,19 @@
 
     <com.xp.flextitle.ViewPagerTitle
         android:id="@+id/pager_title"
-        FlexTitle:background_content_color="@android:color/white"
-        FlexTitle:line_start_color="@android:color/holo_red_dark"
-        FlexTitle:line_end_color="@android:color/holo_blue_light"
-        FlexTitle:line_height="5dp"
-        FlexTitle:line_bottom_margins="10dp"
-        FlexTitle:item_top_margins="10dp"
-        FlexTitle:item_bottom_margins="5dp"
-        FlexTitle:selected_text_Size="16sp"
-        FlexTitle:default_text_size="14sp"
-        FlexTitle:selected_text_color="@android:color/holo_orange_dark"
-        FlexTitle:title_center="true"
+        flexTitle:background_content_color="@android:color/white"
+        flexTitle:line_start_color="@android:color/holo_red_dark"
+        flexTitle:line_end_color="@android:color/holo_blue_light"
+        flexTitle:line_height="5dp"
+        flexTitle:line_bottom_margins="10dp"
+        flexTitle:item_top_margins="10dp"
+        flexTitle:item_bottom_margins="8dp"
+        flexTitle:item_margins="40dp"
+        flexTitle:selected_text_Size="16sp"
+        flexTitle:default_text_size="14sp"
+        flexTitle:selected_text_color="@android:color/holo_orange_dark"
+        flexTitle:title_center="false"
+        flexTitle:line_drag="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

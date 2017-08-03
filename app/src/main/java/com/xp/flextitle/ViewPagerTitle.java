@@ -45,6 +45,7 @@ public class ViewPagerTitle extends HorizontalScrollView {
     private float textTopMargins;
     private float textBottomMargins;
     private float lineBottomMargins;
+    private boolean lineDrag;
 
 
     public void setMargin(int margin) {
@@ -110,6 +111,7 @@ public class ViewPagerTitle extends HorizontalScrollView {
         backgroundColor = array.getColor(R.styleable.FlexTitle_background_content_color, Color.WHITE);
         itemMargins = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_item_margins, 30));
         titleCenter = array.getBoolean(R.styleable.FlexTitle_title_center, false);
+        lineDrag = array.getBoolean(R.styleable.FlexTitle_line_drag, true);
         shaderColorStart = array.getColor(R.styleable.FlexTitle_line_start_color, Color.GREEN);
         shaderColorEnd = array.getColor(R.styleable.FlexTitle_line_end_color, Color.BLUE);
         lineHeight = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_line_height, 10));
@@ -138,7 +140,7 @@ public class ViewPagerTitle extends HorizontalScrollView {
         textView.setTextSize(selectedTextSize);
         float selectTextSize = getTextViewLength(textView);
         int fixLeftDis = (int) (selectTextSize - defaultTextSize) / 2;
-        onPageChangeListener = new MyOnPageChangeListener(getContext(), viewPager, dynamicLine, this, allTextViewLength, margin, fixLeftDis, defaultTextSize, selectTextSize,titleCenter);
+        onPageChangeListener = new MyOnPageChangeListener(getContext(), viewPager, dynamicLine, this, allTextViewLength, margin, fixLeftDis, defaultTextSize, selectTextSize,titleCenter,lineDrag);
         setDefaultIndex(defaultIndex);
         viewPager.addOnPageChangeListener(onPageChangeListener);
 
@@ -162,7 +164,7 @@ public class ViewPagerTitle extends HorizontalScrollView {
     private void createDynamicLine() {
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        dynamicLine = new DynamicLine(getContext(), shaderColorStart, shaderColorEnd, (int)lineHeight,(int)defaultTextSize);
+        dynamicLine = new DynamicLine(getContext(), shaderColorStart, shaderColorEnd, (int)lineHeight,(int)lineBottomMargins);
         dynamicLine.setLayoutParams(params);
     }
 

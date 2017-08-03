@@ -37,8 +37,9 @@ public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
     private float right;
     private boolean titleCenter;
     private boolean hasSeting;
+    private boolean lineDrag;
 
-    public MyOnPageChangeListener(Context context, ViewPager viewPager, DynamicLine dynamicLine, ViewPagerTitle viewPagerTitle, int allLength, int margin, int fixLeftDis, float defaultTextSize, float selectTextSize, boolean titleCenter) {
+    public MyOnPageChangeListener(Context context, ViewPager viewPager, DynamicLine dynamicLine, ViewPagerTitle viewPagerTitle, int allLength, int margin, int fixLeftDis, float defaultTextSize, float selectTextSize, boolean titleCenter, boolean lineDrag) {
         this.viewPagerTitle = viewPagerTitle;
         this.pager = viewPager;
         this.dynamicLine = dynamicLine;
@@ -46,6 +47,7 @@ public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
         this.defaultTextSize = defaultTextSize;
         this.selectTextSize = selectTextSize;
         this.titleCenter = titleCenter;
+        this.lineDrag = lineDrag;
         textViews = viewPagerTitle.getTextView();
         pagerCount = textViews.size();
         screenWidth = getScreenWidth(context);
@@ -59,31 +61,57 @@ public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         if (titleCenter) {
-            if (lastPosition > position) {
-                left = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis;
-                right = (lastPosition + 1) * defaultTextSize + (lastPosition * 2 + 1) * dis + fixLeftDis;
-                dynamicLine.updateView(left, right);
-            } else {
-                if (positionOffset > 0.5f) {
-                    positionOffset = 0.5f;
+            if (lineDrag) {
+                if (lastPosition > position) {
+                    left = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis;
+                    right = (lastPosition + 1) * defaultTextSize + (lastPosition * 2 + 1) * dis + fixLeftDis;
+                    dynamicLine.updateView(left, right);
+                } else {
+                    if (positionOffset > 0.5f) {
+                        positionOffset = 0.5f;
+                    }
+                    left = lastPosition * defaultTextSize + (lastPosition * 2 + 1) * dis + fixLeftDis;
+                    right = (position + positionOffset * 2) * (defaultTextSize + 2 * dis) + dis + fixLeftDis + lineWidth;
+                    dynamicLine.updateView(left, right);
                 }
-                left = lastPosition * defaultTextSize + (lastPosition * 2 + 1) * dis + fixLeftDis;
-                right = (position + positionOffset * 2) * (defaultTextSize + 2 * dis) + dis + fixLeftDis + lineWidth;
-                dynamicLine.updateView(left, right);
+            } else {
+                if (lastPosition > position) {
+                    left = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis;
+                    right = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis + defaultTextSize;
+                    dynamicLine.updateView(left, right);
+                } else {
+                    left = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis;
+                    right = (position + positionOffset) * (defaultTextSize + 2 * dis) + dis + fixLeftDis + lineWidth;
+                    dynamicLine.updateView(left, right);
+                }
             }
+
         } else {
-            if (lastPosition > position) {
-                left = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis;
-                right = (lastPosition + 1) * defaultTextSize + (lastPosition + 1) * dis + fixLeftDis;
-                dynamicLine.updateView(left, right);
-            } else {
-                if (positionOffset > 0.5f) {
-                    positionOffset = 0.5f;
+            if (lineDrag) {
+                if (lastPosition > position) {
+                    left = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis;
+                    right = (lastPosition + 1) * defaultTextSize + (lastPosition + 1) * dis + fixLeftDis;
+                    dynamicLine.updateView(left, right);
+                } else {
+                    if (positionOffset > 0.5f) {
+                        positionOffset = 0.5f;
+                    }
+                    left = lastPosition * defaultTextSize + (lastPosition + 1) * dis + fixLeftDis;
+                    right = (position + positionOffset * 2) * (defaultTextSize + dis) + dis + fixLeftDis + lineWidth;
+                    dynamicLine.updateView(left, right);
                 }
-                left = lastPosition * defaultTextSize + (lastPosition + 1) * dis + fixLeftDis;
-                right = (position + positionOffset * 2) * (defaultTextSize + dis) + dis + fixLeftDis + lineWidth;
-                dynamicLine.updateView(left, right);
+            } else {
+                if (lastPosition > position) {
+                    left = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis;
+                    right = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis + defaultTextSize;
+                    dynamicLine.updateView(left, right);
+                } else {
+                    left = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis;
+                    right = (position + positionOffset) * (defaultTextSize + dis) + dis + fixLeftDis + lineWidth;
+                    dynamicLine.updateView(left, right);
+                }
             }
+
         }
 
 
@@ -105,7 +133,7 @@ public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
             int position = pager.getCurrentItem();
             if (position + 1 < textViews.size() && position - 1 >= 0) {
                 textViews.get(position).getLocationOnScreen(location);
-                int x ;
+                int x;
                 if (position > lastPosition) {
                     x = location[0] - screenWidth / 2 - fixLeftDis + lineWidth / 2;
                 } else {
@@ -121,11 +149,11 @@ public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
             lastPosition = pager.getCurrentItem();
 
         } else if (state == SCROLL_STATE_IDLE) {
-            if (!hasSeting){
+            if (!hasSeting) {
                 int position = pager.getCurrentItem();
                 if (position + 1 < textViews.size() && position - 1 >= 0) {
                     textViews.get(position).getLocationOnScreen(location);
-                    int x ;
+                    int x;
                     if (position > lastPosition) {
                         x = location[0] - screenWidth / 2 - fixLeftDis + lineWidth / 2;
                     } else {
