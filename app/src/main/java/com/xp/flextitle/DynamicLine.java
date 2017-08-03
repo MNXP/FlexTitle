@@ -17,6 +17,7 @@ import static com.xp.flextitle.Tool.getScreenWidth;
 
 public class DynamicLine extends View {
     private int lineHeight;
+    private int lineBottomMargins;
     private int shaderColorEnd;
     private int shaderColorStart;
     private float startX, stopX;
@@ -24,11 +25,12 @@ public class DynamicLine extends View {
     private RectF rectF = new RectF(startX, 0, stopX, 0);
 
 
-    public DynamicLine(Context context, int shaderColorStart, int shaderColorEnd, int lineHeight) {
+    public DynamicLine(Context context, int shaderColorStart, int shaderColorEnd, int lineHeight,int lineBottomMargins) {
         this(context, null);
         this.shaderColorStart = shaderColorStart;
         this.shaderColorEnd = shaderColorEnd;
         this.lineHeight = lineHeight;
+        this.lineBottomMargins = lineBottomMargins;
         init();
     }
 
@@ -64,15 +66,15 @@ public class DynamicLine extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(lineHeight, MeasureSpec.getMode(heightMeasureSpec));
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(lineHeight+lineBottomMargins, MeasureSpec.getMode(heightMeasureSpec));
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
-        rectF.set(startX, 0, stopX, 10);
-        canvas.drawRoundRect(rectF, 5, 5, paint);
+        rectF.set(startX, 0, stopX, lineHeight);
+        canvas.drawRoundRect(rectF, lineHeight/2, lineHeight/2, paint);
     }
 
 

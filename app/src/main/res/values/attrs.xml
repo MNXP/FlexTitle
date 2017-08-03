@@ -4,7 +4,7 @@
 
 <resources>
 
-    <declare-styleable name="ViewPagerTitle">
+    <declare-styleable name="FlexTitle">
         <attr name="default_text_size" format="dimension" />
         <attr name="selected_text_Size" format="dimension" />
         <attr name="default_text_color" format="color" />
@@ -13,7 +13,10 @@
         <attr name="line_start_color" format="color" />
         <attr name="line_end_color" format="color" />
         <attr name="item_margins" format="dimension" />
-        <attr name="line_height" format="integer" />
+        <attr name="item_top_margins" format="dimension" />
+        <attr name="item_bottom_margins" format="dimension" />
+        <attr name="line_bottom_margins" format="dimension" />
+        <attr name="line_height" format="dimension" />
         <attr name="title_center" format="boolean" />
     </declare-styleable>
 </resources>

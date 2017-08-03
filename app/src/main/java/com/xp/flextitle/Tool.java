@@ -3,6 +3,7 @@ package com.xp.flextitle;
 import android.content.Context;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -28,5 +29,27 @@ public class Tool {
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
+    }
+    public static int dip2px(Context ctx, float dp) {
+        float density = ctx.getResources().getDisplayMetrics().density;
+        //dp = px/density
+        int px = (int) (dp * density + 0.5f);
+        return px;
+    }
+
+    public static float px2dip(Context ctx, float px) {
+        float density = ctx.getResources().getDisplayMetrics().density;
+        //dp = px/density
+        float dp = px / density;
+        return dp;
+    }
+
+    public static int sp2px(Context context, float spValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, context.getResources().getDisplayMetrics());
+    }
+
+    public static int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
     }
 }

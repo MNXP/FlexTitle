@@ -24,7 +24,7 @@ import static com.xp.flextitle.Tool.getTextViewLength;
 
 
 public class ViewPagerTitle extends HorizontalScrollView {
-
+    private Context context;
     private String[] titles;
     private ArrayList<TextView> textViews = new ArrayList<>();
     private OnTextViewClick onTextViewClick;
@@ -39,9 +39,13 @@ public class ViewPagerTitle extends HorizontalScrollView {
     private float selectedTextSize;
     private int defaultTextColor;
     private int shaderColorStart;
-    private int lineHeight;
+    private float lineHeight;
     private int shaderColorEnd;
     private boolean titleCenter;
+    private float textTopMargins;
+    private float textBottomMargins;
+    private float lineBottomMargins;
+
 
     public void setMargin(int margin) {
         this.margin = margin;
@@ -91,21 +95,25 @@ public class ViewPagerTitle extends HorizontalScrollView {
 
     public ViewPagerTitle(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
         initAttributeSet(context, attrs);
     }
 
     private void initAttributeSet(Context context, AttributeSet attrs) {
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ViewPagerTitle);
-        defaultTextColor = array.getColor(R.styleable.ViewPagerTitle_default_text_color, Color.GRAY);
-        selectedTextColor = array.getColor(R.styleable.ViewPagerTitle_selected_text_color, Color.BLACK);
-        defaultTextSize = array.getDimension(R.styleable.ViewPagerTitle_default_text_size, 18);
-        selectedTextSize = array.getDimension(R.styleable.ViewPagerTitle_selected_text_Size, 18);
-        backgroundColor = array.getColor(R.styleable.ViewPagerTitle_background_content_color, Color.WHITE);
-        itemMargins = array.getDimension(R.styleable.ViewPagerTitle_item_margins, 30);
-        titleCenter = array.getBoolean(R.styleable.ViewPagerTitle_title_center, false);
-        shaderColorStart = array.getColor(R.styleable.ViewPagerTitle_line_start_color, Color.GREEN);
-        shaderColorEnd = array.getColor(R.styleable.ViewPagerTitle_line_end_color, Color.BLUE);
-        lineHeight = array.getInteger(R.styleable.ViewPagerTitle_line_height, 20);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.FlexTitle);
+        defaultTextColor = array.getColor(R.styleable.FlexTitle_default_text_color, Color.GRAY);
+        selectedTextColor = array.getColor(R.styleable.FlexTitle_selected_text_color, Color.BLACK);
+        defaultTextSize = Tool.px2sp(context,array.getDimension(R.styleable.FlexTitle_default_text_size, 18));
+        selectedTextSize = Tool.px2sp(context,array.getDimension(R.styleable.FlexTitle_selected_text_Size, 18));
+        textTopMargins = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_item_top_margins, 0));
+        textBottomMargins = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_item_bottom_margins, 0));
+        backgroundColor = array.getColor(R.styleable.FlexTitle_background_content_color, Color.WHITE);
+        itemMargins = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_item_margins, 30));
+        titleCenter = array.getBoolean(R.styleable.FlexTitle_title_center, false);
+        shaderColorStart = array.getColor(R.styleable.FlexTitle_line_start_color, Color.GREEN);
+        shaderColorEnd = array.getColor(R.styleable.FlexTitle_line_end_color, Color.BLUE);
+        lineHeight = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_line_height, 10));
+        lineBottomMargins = Tool.px2dip(context,array.getDimension(R.styleable.FlexTitle_line_bottom_margins, 10));
 
         array.recycle();
     }
@@ -132,7 +140,6 @@ public class ViewPagerTitle extends HorizontalScrollView {
         int fixLeftDis = (int) (selectTextSize - defaultTextSize) / 2;
         onPageChangeListener = new MyOnPageChangeListener(getContext(), viewPager, dynamicLine, this, allTextViewLength, margin, fixLeftDis, defaultTextSize, selectTextSize,titleCenter);
         setDefaultIndex(defaultIndex);
-
         viewPager.addOnPageChangeListener(onPageChangeListener);
 
     }
@@ -154,7 +161,8 @@ public class ViewPagerTitle extends HorizontalScrollView {
 
     private void createDynamicLine() {
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dynamicLine = new DynamicLine(getContext(), shaderColorStart, shaderColorEnd, lineHeight);
+
+        dynamicLine = new DynamicLine(getContext(), shaderColorStart, shaderColorEnd, (int)lineHeight,(int)defaultTextSize);
         dynamicLine.setLayoutParams(params);
     }
 
@@ -180,14 +188,14 @@ public class ViewPagerTitle extends HorizontalScrollView {
             textView.setTextColor(Color.GRAY);
             textView.setTextSize(defaultTextSize);
             if (titleCenter) {
-                textViewParams2.setMargins(margin, 0, margin, 0);
+                textViewParams2.setMargins(margin, (int)textTopMargins, margin, (int)textBottomMargins);
                 textView.setLayoutParams(textViewParams2);
             } else {
                 if (i == titles.length - 1) {
-                    textViewParams2.setMargins(margin, 0, margin, 0);
+                    textViewParams2.setMargins(margin, (int)textTopMargins, margin, (int)textBottomMargins);
                     textView.setLayoutParams(textViewParams2);
                 } else {
-                    textViewParams.setMargins(margin, 0, 0, 0);
+                    textViewParams.setMargins(margin, (int)textTopMargins, 0, (int)textBottomMargins);
                     textView.setLayoutParams(textViewParams);
                 }
             }

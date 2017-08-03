@@ -5,9 +5,9 @@
     android:background="@color/colorAccent"
     android:orientation="vertical">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="layout4"
-        android:textColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="直播"
         android:textSize="80sp" />
 </LinearLayout>

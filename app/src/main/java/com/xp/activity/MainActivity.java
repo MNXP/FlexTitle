@@ -1,10 +1,14 @@
-package com.xp.flextitle;
+package com.xp.activity;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import com.xp.flextitle.MyPagerAdapter;
+import com.xp.flextitle.R;
+import com.xp.flextitle.ViewPagerTitle;
 
 import java.util.ArrayList;
 
