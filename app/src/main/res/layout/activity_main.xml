@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ViewPagerTitle="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xp.flextitle.ViewPagerTitle
+        android:id="@+id/pager_title"
+        ViewPagerTitle:background_content_color="@android:color/white"
+        ViewPagerTitle:line_start_color="@android:color/holo_red_dark"
+        ViewPagerTitle:line_end_color="@android:color/holo_blue_light"
+        ViewPagerTitle:selected_text_Size="8sp"
+        ViewPagerTitle:selected_text_color="@android:color/holo_orange_dark"
+        ViewPagerTitle:title_center="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

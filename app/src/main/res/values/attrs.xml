@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources>
+
+    <declare-styleable name="ViewPagerTitle">
+        <attr name="default_text_size" format="dimension" />
+        <attr name="selected_text_Size" format="dimension" />
+        <attr name="default_text_color" format="color" />
+        <attr name="selected_text_color" format="color" />
+        <attr name="background_content_color" format="color" />
+        <attr name="line_start_color" format="color" />
+        <attr name="line_end_color" format="color" />
+        <attr name="item_margins" format="dimension" />
+        <attr name="line_height" format="integer" />
+        <attr name="title_center" format="boolean" />
+    </declare-styleable>
+</resources>
