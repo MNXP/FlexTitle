@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.xp.flextitle.MyPagerAdapter;
+import com.xp.differentflextitle.MyPagerAdapter;
+import com.xp.differentflextitle.ViewPagerTitle;
 import com.xp.flextitle.R;
-import com.xp.flextitle.ViewPagerTitle;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerTitle = (ViewPagerTitle)findViewById(R.id.pager_title);
         pager = (ViewPager) findViewById(R.id.view_pager);
-        viewPagerTitle.initData(new String[]{"关注", "推荐", "视频", "直播", "图片", "段子", "精华", "热门"}, pager, 0);
+        viewPagerTitle.initData(new String[]{"关注", "推荐文字", "视频", "直播源", "图片", "段子手", "精华", "热门"}, pager, 0);
 
 
         LayoutInflater inflater = getLayoutInflater();

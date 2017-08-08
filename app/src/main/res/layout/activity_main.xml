@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xp.flextitle.ViewPagerTitle
+    <com.xp.differentflextitle.ViewPagerTitle
         android:id="@+id/pager_title"
         flexTitle:background_content_color="@android:color/white"
         flexTitle:line_start_color="@android:color/holo_red_dark"
@@ -20,7 +20,8 @@
         flexTitle:default_text_size="14sp"
         flexTitle:selected_text_color="@android:color/holo_orange_dark"
         flexTitle:title_center="false"
-        flexTitle:line_drag="false"
+        flexTitle:line_drag="true"
+        flexTitle:line_margins="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

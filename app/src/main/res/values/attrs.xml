@@ -12,6 +12,7 @@
         <attr name="background_content_color" format="color" />//背景颜色
         <attr name="line_start_color" format="color" />//线 起始颜色
         <attr name="line_end_color" format="color" />//线 终止颜色
+        <attr name="line_margins" format="dimension" />//线的间距
         <attr name="item_margins" format="dimension" />//item间距
         <attr name="item_top_margins" format="dimension" />//据上高度
         <attr name="item_bottom_margins" format="dimension" />//距下高度
