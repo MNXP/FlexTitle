@@ -21,4 +21,36 @@
         <attr name="title_center" format="boolean" />//文字是否左右均留空隙
         <attr name="line_drag" format="boolean" />//线是否有拖拽效果
     </declare-styleable>
+
+
+    <attr name="text_size" format="dimension" />
+    <attr name="default_color" format="color|reference" />
+    <attr name="changed_color" format="color|reference" />
+
+    <declare-styleable name="ShadowTextView">
+        <attr name="text" format="string" />
+        <attr name="text_size" />
+        <attr name="default_color"/>
+        <attr name="changed_color"/>
+        <attr name="progress" format="float" />
+        <attr name="direction">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ShadowTab">
+        <attr name="text_size"/>
+        <attr name="default_color"/>
+        <attr name="changed_color"/>
+        <attr name="item_padding_l" format="dimension"/>
+        <attr name="item_padding_r" format="dimension"/>
+        <attr name="item_padding_t" format="dimension"/>
+        <attr name="item_padding_b" format="dimension"/>
+        <attr name="item_padding" format="dimension"/>
+        <attr name="line_start_colors" format="color" />//线 起始颜色
+        <attr name="line_end_colors" format="color" />//线 终止颜色
+        <attr name="line_heights" format="dimension" />// 线的高度
+        <attr name="line_bottom_margin" format="dimension" />//线 距下高度
+    </declare-styleable>
 </resources>

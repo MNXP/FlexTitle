@@ -18,12 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xp.flextitle.R;
-import com.xp.flextitle.Tool;
 
 import java.util.ArrayList;
 
-import static com.xp.flextitle.Tool.getScreenWidth;
-import static com.xp.flextitle.Tool.getTextViewLength;
+import static com.xp.differentflextitle.Tool.getScreenWidth;
+import static com.xp.differentflextitle.Tool.getTextViewLength;
 
 
 public class ViewPagerTitle extends HorizontalScrollView {

@@ -1,4 +1,4 @@
-package com.xp.flextitle;
+package com.xp.differentflextitle;
 
 import android.content.Context;
 import android.text.TextPaint;

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import static android.support.v4.view.ViewPager.SCROLL_STATE_IDLE;
 import static android.support.v4.view.ViewPager.SCROLL_STATE_SETTLING;
-import static com.xp.flextitle.Tool.getScreenWidth;
-import static com.xp.flextitle.Tool.getTextViewLength;
+import static com.xp.differentflextitle.Tool.getScreenWidth;
+import static com.xp.differentflextitle.Tool.getTextViewLength;
 
 /**
  * Created by xiangpan on 2017/8/1.
