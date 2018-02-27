@@ -124,7 +124,7 @@ public class ViewPagerTitle extends HorizontalScrollView {
     /**
      * 初始化时，调用这个方法。ViewPager需要设置Adapter，且titles的数据长度需要与Adapter中的数据长度一置。
      *
-     * @param titles       标题1、标题2 etc
+     * @param titles
      * @param viewPager
      * @param selectedIndex 默认选择的第几个页面
      */
