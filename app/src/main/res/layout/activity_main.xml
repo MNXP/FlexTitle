@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xp.differentflextitle.ViewPagerTitle
+    <com.xp.different.ViewPagerTitle
         android:id="@+id/pager_title"
         flexTitle:background_content_color="@android:color/white"
         flexTitle:line_start_color="@android:color/holo_red_dark"
@@ -32,7 +32,7 @@
         android:layout_height="200dp"/>
 
 
-    <com.xp.shadowtitle.ShadowTab
+    <com.xp.shadow.ShadowTab
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

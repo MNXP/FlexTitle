@@ -1,4 +1,4 @@
-package com.xp.differentflextitle;
+package com.xp.different;
 
 import android.content.Context;
 import android.text.TextPaint;
@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
+ *
  * Created by xiangpan on 2017/8/1.
  */
 
@@ -39,7 +40,6 @@ public class Tool {
 
     public static float px2dip(Context ctx, float px) {
         float density = ctx.getResources().getDisplayMetrics().density;
-        //dp = px/density
         float dp = px / density;
         return dp;
     }

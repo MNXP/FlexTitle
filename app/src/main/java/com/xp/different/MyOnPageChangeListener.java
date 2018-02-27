@@ -1,4 +1,4 @@
-package com.xp.differentflextitle;
+package com.xp.different;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -8,10 +8,11 @@ import java.util.ArrayList;
 
 import static android.support.v4.view.ViewPager.SCROLL_STATE_IDLE;
 import static android.support.v4.view.ViewPager.SCROLL_STATE_SETTLING;
-import static com.xp.differentflextitle.Tool.getScreenWidth;
-import static com.xp.differentflextitle.Tool.getTextViewLength;
+import static com.xp.different.Tool.getScreenWidth;
+import static com.xp.different.Tool.getTextViewLength;
 
 /**
+ *
  * Created by xiangpan on 2017/8/1.
  */
 

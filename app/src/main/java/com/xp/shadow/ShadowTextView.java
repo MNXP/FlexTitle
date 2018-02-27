@@ -1,21 +1,19 @@
-package com.xp.shadowtitle;
+package com.xp.shadow;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 
-import com.xp.differentflextitle.Tool;
-import com.xp.flextitle.R;
+import com.xp.different.Tool;
 
 /**
- * Created by CCY on 2017-06-05.
+ *
+ * Created by xiangpan on 2017/8/1.
  */
 
 public class ShadowTextView extends View {
@@ -139,7 +137,7 @@ public class ShadowTextView extends View {
         canvas.drawText(text, textLeft, textBottom - fontMetrics.descent, paint);
         canvas.restore();
         //画渐变部分的文字
-        canvas.save(Canvas.CLIP_SAVE_FLAG);
+        canvas.save();
         paint.setColor(changeColor);
         canvas.clipRect(startX, 0, endX, getMeasuredHeight());
         canvas.drawText(text, textLeft, textBottom - fontMetrics.descent, paint);

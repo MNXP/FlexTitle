@@ -8,14 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.xp.differentflextitle.MyPagerAdapter;
-import com.xp.differentflextitle.ViewPagerTitle;
+import com.xp.different.MyPagerAdapter;
+import com.xp.different.ViewPagerTitle;
 import com.xp.flextitle.R;
-import com.xp.shadowtitle.ShadowTab;
+import com.xp.shadow.ShadowTab;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ *
+ * Created by xiangpan on 2017/8/1.
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager pager;

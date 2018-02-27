@@ -1,4 +1,4 @@
-package com.xp.differentflextitle;
+package com.xp.different;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 /**
+ *
  * Created by xiangpan on 2017/8/1.
  */
 

@@ -1,4 +1,4 @@
-package com.xp.differentflextitle;
+package com.xp.different;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,9 +9,10 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
-import static com.xp.differentflextitle.Tool.getScreenWidth;
+import static com.xp.different.Tool.getScreenWidth;
 
 /**
+ *
  * Created by xiangpan on 2017/8/1.
  */
 

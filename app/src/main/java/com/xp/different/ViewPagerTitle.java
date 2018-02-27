@@ -1,6 +1,7 @@
-package com.xp.differentflextitle;
+package com.xp.different;
 
 /**
+ *
  * Created by xiangpan on 2017/8/1.
  */
 
@@ -21,8 +22,8 @@ import com.xp.flextitle.R;
 
 import java.util.ArrayList;
 
-import static com.xp.differentflextitle.Tool.getScreenWidth;
-import static com.xp.differentflextitle.Tool.getTextViewLength;
+import static com.xp.different.Tool.getScreenWidth;
+import static com.xp.different.Tool.getTextViewLength;
 
 
 public class ViewPagerTitle extends HorizontalScrollView {

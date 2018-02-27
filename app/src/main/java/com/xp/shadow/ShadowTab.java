@@ -1,4 +1,4 @@
-package com.xp.shadowtitle;
+package com.xp.shadow;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +15,13 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.xp.differentflextitle.DynamicLine;
-import com.xp.differentflextitle.Tool;
+import com.xp.different.DynamicLine;
+import com.xp.different.Tool;
 import com.xp.flextitle.R;
 
 /**
- * Created by XMuser on 2017-06-06.
+ *
+ * Created by xiangpan on 2017/8/1.
  */
 
 public class ShadowTab extends HorizontalScrollView {
