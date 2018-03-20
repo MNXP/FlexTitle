@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Region;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -139,7 +140,7 @@ public class ShadowTextView extends View {
         //画渐变部分的文字
         canvas.save();
         paint.setColor(changeColor);
-        canvas.clipRect(startX, 0, endX, getMeasuredHeight());
+        canvas.clipRect(startX, 0, endX, getMeasuredHeight(), Region.Op.INTERSECT);
         canvas.drawText(text, textLeft, textBottom - fontMetrics.descent, paint);
         canvas.restore();
 
